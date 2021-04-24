@@ -18,3 +18,5 @@ jobs:
         yarn run build
         yarn config set npmAuthToken '${{ secrets.PERSONAL_ACCESS_TOKEN  }}'
         yarn npm publish --access public
+      env:
+        CI: true
