@@ -16,7 +16,7 @@ jobs:
     - run: |
         yarn install --immutable
         yarn run build
-        yarn config set npmAuthToken '${{ secrets.PERSONAL_ACCESS_TOKEN  }}'
         yarn npm publish --access public
       env:
         CI: true
+        YARN_NPM_AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
