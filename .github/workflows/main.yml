@@ -1,0 +1,23 @@
+name: 'Cirrus Types CI'
+on:
+  workflow_dispatch:
+    inputs:
+  release:
+    types: [publish]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '14.x'
+        registry-url: 'https://npm.pkg.github.com'
+        scope: '@alker0'
+    - run: |
+        yarn install --immutable
+        yarn run build
+        yarn config set npmAuthToken '${{ secrets.PERSONAL_ACCESS_TOKEN  }}'
+        yarn npm publish --access public
+      #env:
+      #  NPM_AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
