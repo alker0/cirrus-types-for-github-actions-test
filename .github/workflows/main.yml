@@ -1,9 +1,8 @@
 name: 'Cirrus Types CI'
 on:
   workflow_dispatch:
-    inputs:
   release:
-    types: [publish]
+    types: [published]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,5 +18,3 @@ jobs:
         yarn run build
         yarn config set npmAuthToken '${{ secrets.PERSONAL_ACCESS_TOKEN  }}'
         yarn npm publish --access public
-      #env:
-      #  NPM_AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
