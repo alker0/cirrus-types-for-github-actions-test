@@ -12,7 +12,7 @@ npm install @alker/cirrus-types
 ## Usage
 
 ```ts
-import { Cirrus } from "@alker/cirrus-types";
+import { Cirrus } from "@alker0/cirrus-types";
 
 const col: Cirrus = 'col';
 ```
@@ -20,7 +20,7 @@ const col: Cirrus = 'col';
 You can also use the type from global.
 
 ```ts
-import { Cirrus as CirrusClasses } from "@alker/cirrus-types";
+import { Cirrus as CirrusClasses } from "@alker0/cirrus-types";
 
 declare global {
   type Cirrus = CirrusClasses;
